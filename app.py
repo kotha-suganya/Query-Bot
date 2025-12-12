@@ -3,8 +3,7 @@ import google.generativeai as genai
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from dotenv import load_dotenv
-# Configure your Gemini API key from environment variables.
-# For security, do not hard-code your key.
+
 load_dotenv()
 try:
     GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -15,11 +14,10 @@ except KeyError:
     print("On Windows: 'set GOOGLE_API_KEY=YOUR_KEY'")
     exit()
 
-# Initialize the Flask app
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
 
-# Initialize the generative model and a chat history
+app = Flask(__name__)
+CORS(app)  
+
 model = genai.GenerativeModel('gemini-2.5-flash')
 chat = model.start_chat(history=[])
 
@@ -37,7 +35,7 @@ def chat_response():
         return jsonify({"error": "No message provided"}), 400
 
     try:
-        # Send the user's message to the Gemini model and get a response
+
         response = chat.send_message(user_message).text
         return jsonify({"response": response})
 
@@ -46,7 +44,7 @@ def chat_response():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    # Run the Flask development server
+
     app.run(debug=True)
 
 
