@@ -1,0 +1,24 @@
+# --- Security / Environment Variables ---
+# CRUCIAL: Excludes the file containing the API key and other secrets
+.env
+
+# --- Virtual Environment (Venv) ---
+# Ignores the folder containing all installed Python packages
+# This keeps the repository small and ensures users install their own dependencies
+venv/
+
+# --- Bytecode / Cache Files ---
+# Python generates compiled bytecode files to speed up execution
+__pycache__/
+*.pyc
+
+# --- Operating System Files ---
+# Files created by macOS
+.DS_Store
+
+# Files created by Windows
+Thumbs.db
+
+# --- Flask/Web Development Files ---
+# If your Flask app creates a local database or instance folder
+instance/
