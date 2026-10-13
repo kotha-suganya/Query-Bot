@@ -49,10 +49,7 @@ if __name__ == '__main__':
 
 
 
-# before running the code, just execute these 2 commands
 
-# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-# .\venv\Scripts\activate
 
 # as the virtual environment is created , the settings for this code are such that we need to activate it 
 # each and every time . otherwise the code will not run.
